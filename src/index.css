@@ -1,0 +1,498 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+    Root Variables & Base Styles
+========================================= */
+:root {
+    /* Colors from tailwind.config.cjs */
+    --color-text: #393D3F;
+    --color-background: #FDFDFF;
+    --color-main-accent: #D3D2C7;
+    --color-secondary-accent: #44869D;
+
+    /* Font and base styles */
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* =========================================
+    Links
+========================================= */
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+a:hover {
+    color: var(--color-secondary-accent);
+}
+
+/* =========================================
+    Body
+========================================= */
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+/* =========================================
+    Headings
+========================================= */
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    color: var(--color-text);
+}
+
+/* =========================================
+    Buttons
+========================================= */
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: border-color 0.25s, background-color 0.25s;
+}
+button:hover {
+    border-color: var(--color-secondary-accent);
+}
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* =========================================
+    Utility Classes
+========================================= */
+/* Margin and padding utilities */
+.m-0 { margin: 0 !important; }
+.mt-6 { margin-top: 1.5rem !important; }
+.mb-4 { margin-bottom: 1rem !important; }
+.p-4 { padding: 1rem !important; }
+.px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+.py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+
+/* Flex utilities */
+.flex { display: flex !important; }
+.flex-col { flex-direction: column !important; }
+.justify-center { justify-content: center !important; }
+.items-center { align-items: center !important; }
+.gap-6 { gap: 1.5rem !important; }
+
+/* Width and max-width */
+.w-full { width: 100% !important; }
+.max-w-6xl { max-width: 72rem !important; }
+.max-w-md { max-width: 28rem !important; }
+
+/* Text alignment */
+.text-center { text-align: center !important; }
+
+/* Background colors */
+.bg-text-color { background-color: var(--color-text) !important; }
+.bg-background-color { background-color: var(--color-background) !important; }
+.bg-main-accent { background-color: var(--color-main-accent) !important; }
+.bg-secondary-accent { background-color: var(--color-secondary-accent) !important; }
+
+/* Text colors */
+.text-text-color { color: var(--color-text) !important; }
+.text-background-color { color: var(--color-background) !important; }
+.text-main-accent { color: var(--color-main-accent) !important; }
+.text-secondary-accent { color: var(--color-secondary-accent) !important; }
+
+/* Font weights */
+.font-bold { font-weight: 700 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-medium { font-weight: 500 !important; }
+
+/* Rounded corners */
+.rounded-lg { border-radius: 0.5rem !important; }
+
+/* Shadow */
+.shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06) !important;
+}
+
+/* Hover opacity effect */
+.hover\:bg-opacity-80:hover { opacity: 0.8 !important; }
+.hover\:bg-opacity-90:hover { opacity: 0.9 !important; }
+
+/* =========================================
+    Hero Section
+========================================= */
+.hero-section {
+    background-image: url('/inc/hero-img.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: var(--color-background);
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 0;
+}
+.hero-section > * {
+    position: relative; 
+    z-index: 1;
+}
+
+/* =========================================
+    About Section Layout
+========================================= */
+.about-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 0 0.5rem;
+    background: transparent; /* transparent wrapper */
+}
+@media (min-width: 768px) {
+    .about-wrapper {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+}
+
+.about-left {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: 0; /* initially hidden */
+    transform: translateX(-40px); /* initial offset for animation */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.about-left.slide-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-accent {
+    position: absolute;
+    inset: 0;
+    background: var(--color-main-accent);
+    border-radius: 16px;
+    transform: translate(18px, 18px);
+    z-index: 1;
+    width: 92%;
+    max-height: 500px;
+    pointer-events: none;
+}
+
+.about-card {
+    position: relative;
+    z-index: 2;
+    background: var(--color-background);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 85%;
+    height: 300px;
+    max-height: 300px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem; 
+}
+
+.about-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.about-body {
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.55;
+}
+
+.about-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* initially hidden */
+    transform: translateX(40px); /* initial offset for animation */
+    transition: opacity 0.7s ease-out 0.12s, transform 0.7s ease-out 0.12s;
+}
+.about-right.slide-right {
+    opacity: 1;
+    transform: translateX(0);
+    delay: 120ms;
+}
+
+.about-image {
+    width: 220px;
+    height: 220px;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 9999px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    background: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .about-left { flex: 1 1 60%; }
+    .about-right { flex: 0 0 320px; display: flex; align-items: center; justify-content: flex-end; }
+    .about-image { width: 300px; height: 300px; }
+}
+
+/* =========================================
+    Project Section
+========================================= */
+.project-container {
+  padding: 0.5rem 1.5rem; 
+  margin: 0  auto 2rem;
+  max-width: 90%;
+}
+
+.project-title {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 24px;
+}
+
+.project-image {
+  flex-shrink: 0;
+  border-radius: 0.375rem;
+  object-fit: cover;
+  height: 13rem;
+  width: 50%;
+}
+
+.project-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+
+/* =========================================
+    Skills Section
+========================================= */
+.skills-section {
+  background-image: url('/inc/skills-img.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: var(--color-background); /* adjust text color for contrast */
+  margin-top: 0;
+}
+
+.skills-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.skills-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+    Contact Section
+========================================= */
+.input-field {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-main-accent);
+  color: var(--color-text);
+  border: 1px solid var(--color-main-accent);
+  font-size: 1rem;
+}
+
+.btn-submit {
+  display: block; /* or flex */
+  width: 100%;
+  box-sizing: border-box; /* include padding/border in width */
+  padding: 1rem 2rem;
+  background-color: var(--color-secondary-accent);
+  color: var(--color-background);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  opacity: 0.8;
+}
+
+#contact > div {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  #contact > div {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #contact > div > * {
+    flex-basis: 40vw;
+    max-width: 40vw;
+  }
+
+  #contact > div > *:first-child {
+    margin-right: 2rem;
+  }
+}
+
+.input-field:focus {
+  outline: none;
+  outline-offset: 2px;
+  border-color: var(--color-main-accent);
+}
+.input-field::placeholder {
+  transition: opacity 0.2s ease;
+}
+.input-field:focus::placeholder {
+  opacity: 0; 
+}
+
+/* =========================================
+    Footer Section
+========================================= */
+.footer {
+  height: 3rem;
+  background-color: #393D3F;
+  color: #FDFDFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+  
+/* =========================================
+    Animations (Generic)
+========================================= */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
+.animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+
+/* =========================================
+    Animations
+========================================= */
+@keyframes slideInFromLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.slide-left {
+    animation: slideInFromLeft 700ms ease-out both;
+}
+.slide-right {
+    animation: slideInFromRight 700ms ease-out both;
+}
+@keyframes typing {
+  from { width: 0ch }
+  to { width: 14ch }
+}
+@keyframes blinkCaret {
+  0%, 100% { border-color: transparent }
+  50% { border-color: var(--color-background) }
+}
+.hero-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--color-background);
+  display: inline-block;
+  width: 0;
+  animation:
+    typing 3s steps(18, end) forwards,
+    blinkCaret 0.75s step-end infinite 3s;
+}
+
+/* =========================================
+    Light Mode Overrides
+========================================= */
+@media (prefers-color-scheme: light) {
+    a:hover { color: #747bff; }
+    button { background-color: #C6C5B9; }
+}
+
+/* =========================================
+    Spacing
+========================================= */
+#about {
+  margin-top: 4rem; 
+}
+#projects {
+  margin-top: 4rem;
+  margin-bottom: 0;
+  padding: 2rem 0;
+}
+#skills {
+  margin-top: 0;
+  padding: 1rem 0;
+}
+#contact {
+  margin-top: 1rem;
+  padding: 2rem 0;
+  margin-bottom: 3rem;
+}
