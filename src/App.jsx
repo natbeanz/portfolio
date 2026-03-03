@@ -200,7 +200,7 @@ export default function App() {
             {
               title: "Allison Rushby Website",
               desc: "Designed and developed a custom Squarespace website for author Allison Rushby, showcasing her books and engaging readers. Used Figma to design, and a combination of Squarespace and custom coding to create a visually appealing, user-friendly site with custom layouts, interactive elements, and seamless navigation. Collaborated closely with the author to ensure the design reflected her brand and effectively promoted her work.",
-              img: "/inc/allison-img.png",
+              img: "/portfolio/inc/allison-img.png",
               link: "https://www.allisonrushby.com/",
             },
             {
@@ -212,18 +212,18 @@ export default function App() {
             {
               title: "Ascentsia Law Corporation Website",
               desc: "Led the development of a fully custom WordPress web and mobile website from scratch using PHP, JavaScript, and TailwindCSS, without templates or page builders. Designed a responsive, SEO-optimized site tailored specifically to the firm’s branding and operational needs, enhancing user experience and client accessibility. Collaborated closely with the Business Development Manager to align the website with the company’s marketing goals.",
-              img: "/inc/ascentsia-img.png",
+              img: "/portfolio/inc/ascentsia-img.png",
               link: "https://www.ascentsialawcorp.com/",
             },
             {
               title: "Portfolio Website",
               desc: "Built a modern personal portfolio website using Vite and React, focusing on clean, efficient code and smooth user experience. Designed and developed responsive layouts, reusable components, and interactive elements to showcase projects effectively. Emphasized accessibility, performance, and maintainability throughout the site.",
-              img: "/inc/portfolio-img.png",
+              img: "/portfolio/inc/portfolio-img.png",
             },
             {
               title: "Interactive Plant Discovery Platform",
               desc: "YayPlants! is a Figma-designed web prototype that helps users explore, identify, and learn about native flora in Queensland. The project features an intuitive homepage, plant catalogue, detailed species pages, and a camera-based plant finder. Created for a class project, it emphasizes user-friendly navigation, engaging visuals, and clear plant information to make plant discovery fun and accessible for all nature enthusiasts.",
-              img: "/inc/figma-img.png",
+              img: "/portfolio/inc/figma-img.png",
             },
           ].map((p, i) => (
             <div
