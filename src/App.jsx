@@ -316,7 +316,7 @@ export default function App() {
 
         <h3 className="text-2xl font-semibold mb-4">My Resume</h3>
         <iframe
-          src="/inc/my-resume.pdf"
+          src="/portfolio/inc/my-resume.pdf"
           title="Resume PDF"
           width="80%"
           height="600px"
