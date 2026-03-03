@@ -192,6 +192,12 @@ export default function App() {
         <div className="max-w-6xl mx-auto space-y-[10px]">
           {[
             {
+              title: "Newish Communications Website Redesign",
+              desc: "Helped redesign and develop the Newish website using WordPress, Elementor, and custom code, creating a modern, professional, and accessible online presence for the company. I am also responsible for maintaining and updating the site, ensuring it remains up-to-date and functional.",
+              img: "/inc/newish-img.png",
+              link: "https://www.newish.com.au/",
+            },
+            {
               title: "Allison Rushby Website",
               desc: "Designed and developed a custom Squarespace website for author Allison Rushby, showcasing her books and engaging readers. Used Figma to design, and a combination of Squarespace and custom coding to create a visually appealing, user-friendly site with custom layouts, interactive elements, and seamless navigation. Collaborated closely with the author to ensure the design reflected her brand and effectively promoted her work.",
               img: "/inc/allison-img.png",
@@ -206,7 +212,8 @@ export default function App() {
             {
               title: "Ascentsia Law Corporation Website",
               desc: "Led the development of a fully custom WordPress web and mobile website from scratch using PHP, JavaScript, and TailwindCSS, without templates or page builders. Designed a responsive, SEO-optimized site tailored specifically to the firm’s branding and operational needs, enhancing user experience and client accessibility. Collaborated closely with the Business Development Manager to align the website with the company’s marketing goals.",
-              iframeSrc: "https://www.ascentsialawcorp.com/",
+              img: "/inc/ascentsia-img.png",
+              link: "https://www.ascentsialawcorp.com/",
             },
             {
               title: "Portfolio Website",
