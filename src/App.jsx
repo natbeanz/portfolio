@@ -177,7 +177,7 @@ export default function App() {
             ref={aboutRightRef}
           >
             <div className="about-image">
-              <img src="/inc/about-img.jpg" alt="Natasha" />
+              <img src="/portfolio/inc/about-img.jpg" alt="Natasha" />
             </div>
           </div>
         </div>
