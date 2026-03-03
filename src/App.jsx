@@ -194,7 +194,7 @@ export default function App() {
             {
               title: "Newish Communications Website Redesign",
               desc: "Helped redesign and develop the Newish website using WordPress, Elementor, and custom code, creating a modern, professional, and accessible online presence for the company. I am also responsible for maintaining and updating the site, ensuring it remains up-to-date and functional.",
-              img: "/inc/newish-img.png",
+              img: "/portfolio/inc/newish-img.png",
               link: "https://www.newish.com.au/",
             },
             {
